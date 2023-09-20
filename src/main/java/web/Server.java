@@ -10,13 +10,11 @@ public class Server extends Jooby {
 
 
 	public Server() {
-            ProductDAO productDao = JdbiDaoFactory.getProductDAO();
-
-
             install(new GsonModule());
 
             mount(new StaticAssetModule());
-            mount(new ProductModule(productDao));
+            mount(new ProductModule(JdbiDaoFactory.getProductDAO()));
+            mount(new CustomerModule(JdbiDaoFactory.getCustomerDAO()));
 	}
 
 	public static void main(String[] args) {
