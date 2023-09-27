@@ -29,6 +29,9 @@ nav p {
     margin: 0;
     padding-top: 1px;
 }
+nav div {
+    display: inline;
+}
 /* tables */
 table {
 	margin: 20px;
