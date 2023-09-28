@@ -20,16 +20,16 @@
                     validation = validation != null ? validation : "";
                 %>-->
                 <!--<p style="color:red"><%= validation %></p>-->
-                <form @submit.prevent="getCustomer(username)">
-                    <label>Username:</label><input type="text" v-model="username" required/>
-                    <label>Password:</label><input type="password" required/>
+                <form @submit.prevent="signIn()">
+                    <label>Username:</label><input type="text" v-model="customer.username" required/>
+                    <label>Password:</label><input type="password" v-model="customer.password" required/>
                     
                     <button type="submit">Sign In</button>
                 </form>
             </fieldset>
             <p> If you don't have an account then you can 
-                <a href="create-account.jsp">create one</a>.</p>
+                <a href="create-account.html">create one</a>.</p>
         </main>
-        <script type="module" src="js/sign-in.js"></script>
+        <script type="module" src="js/customer-controller.js"></script>
     </body>
 </html>

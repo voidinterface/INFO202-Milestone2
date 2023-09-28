@@ -1,4 +1,5 @@
-var categoryFilterApi = ({username}) => `/api/customers/${username}/`
+var signInApi = ({username}) => `/api/customers/${username}/`;
+var signUpApi = `/api/register/`;
 /* global Vue, axios */
 
 const app = Vue.createApp({
@@ -6,7 +7,7 @@ const app = Vue.createApp({
     data() {
         return {
             // models map (comma separated key/value pairs)
-            username: new String(),
+            customer: new Object()
         };
     },
 
@@ -16,17 +17,31 @@ const app = Vue.createApp({
 
     methods: {
         // comma separated function declarations
-        getCustomer(username) {
-            axios.get(categoryFilterApi({'username': username}))
+        signIn(username) {
+            axios.get(signInApi({'username': this.customer.username}))
                 .then( response => {
-                    dataStore.commit('setCustomer', response.data);
-                    window.location = 'view-products.html';
+                    this.customer = response.data;
+                    this.storeCustomer();
                 }).catch(error => {
                     console.error(error);
                     alert('An error occured, check the console for details!');
                 });
             
         },
+        signUp() {
+            axios.post(signUpApi, this.customer)
+                .then( response => {
+                    this.storeCustomer();
+                }).catch(error => {
+                    console.error(error);
+                    alert('An error occured, check the console for details!');
+                });
+            
+        },
+        storeCustomer() {
+            dataStore.commit('setCustomer', this.customer);
+            window.location = 'view-products.html';
+        }
     },
 
     // other modules
