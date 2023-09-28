@@ -48,6 +48,11 @@ const app = Vue.createApp({
                     alert('An error occured, check the console for details!');
                 });
         },
+        buyProduct(product) {
+            alert('hello')
+            dataStore.commit("selectProduct", product);
+            window.location = "quantity.html";
+        },
     },
 
     // other modules
