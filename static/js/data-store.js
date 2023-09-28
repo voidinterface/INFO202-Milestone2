@@ -1,4 +1,4 @@
-export const sessionStore = Vuex.createStore({
+export const dataStore = Vuex.createStore({
 
     state () {
         verification: null;
@@ -7,7 +7,7 @@ export const sessionStore = Vuex.createStore({
 
     mutations: {
         setCustomer(state, customer) {
-                state.scustomer = customer;
+                state.customer = customer;
         },
     },
 

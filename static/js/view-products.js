@@ -56,6 +56,9 @@ const app = Vue.createApp({
 });
 
 // other component imports go here
+// import data store
+import { dataStore } from './data-store.js'
+app.use(dataStore);
 // import the navigation menu
 import { navigationMenu } from './navigation-menu.js';
 

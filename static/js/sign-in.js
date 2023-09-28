@@ -19,7 +19,7 @@ const app = Vue.createApp({
         getCustomer(username) {
             axios.get(categoryFilterApi({'username': username}))
                 .then( response => {
-                    sessionStore.commit('setCustomer', response.data);
+                    dataStore.commit('setCustomer', response.data);
                     window.location = 'view-products.html';
                 }).catch(error => {
                     console.error(error);
@@ -38,8 +38,8 @@ const app = Vue.createApp({
 // import the navigation menu
 import { navigationMenu } from './navigation-menu.js';
 
-import { sessionStore } from './session-store.js';
-app.use(sessionStore);	
+import { dataStore } from './data-store.js';
+app.use(dataStore);	
 
 // register the navigation menu under the <navmenu> tag
 app.component('navmenu', navigationMenu);
