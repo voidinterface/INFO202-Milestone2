@@ -55,7 +55,7 @@ const app = Vue.createApp({
     },
 
     // other modules
-    mixins: []
+    mixins: [NumberFormatter]
 
 });
 
@@ -65,6 +65,8 @@ import { dataStore } from './data-store.js'
 app.use(dataStore);
 // import the navigation menu
 import { navigationMenu } from './navigation-menu.js';
+
+import { NumberFormatter } from './number-formatter.js';
 
 // register the navigation menu under the <navmenu> tag
 app.component('navmenu', navigationMenu);

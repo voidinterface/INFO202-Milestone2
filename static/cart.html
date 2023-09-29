@@ -28,14 +28,14 @@
                     <tbody>
                         <tr v-for="item in items">
                             <td>{{item.product.name}}</td>
-                            <td>{{item.quantityPurchased}}</td>
-                            <td>${{item.salePrice}}</td>
-                            <td>${{item.salePrice * item.quantityPurchased}}</td>
+                            <td>{{formatNumber(item.quantityPurchased, 0)}}</td>
+                            <td>{{formatCurrency(item.salePrice)}}</td>
+                            <td>{{formatCurrency(item.salePrice * item.quantityPurchased)}}</td>
                         </tr>
                         <tr>
                             <td></td>
                             <td colspan="2"><h2>Subtotal:</h2></td>
-                            <td><h2>${{subtotal}}</h2></td>
+                            <td><h2>{{formatCurrency(subtotal)}}</h2></td>
                         </tr>
                     </tbody>
                 </table>

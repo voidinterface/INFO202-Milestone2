@@ -34,8 +34,8 @@
                         <div class="product-description-sm">{{product.description}}</div>
                         <div class="quantity-selector">
                             <div class="product-sales-info">
-                                <p class="product-price">${{product.listPrice}}</p>
-                                <p class="quantity-available">{{product.quantityInStock}} Available</p>
+                                <p class="product-price">{{formatCurrency(product.listPrice)}}</p>
+                                <p class="quantity-available">{{formatNumber(product.quantityInStock, 0)}} Available</p>
                             </div>
                             <button @click.prevent="buyProduct(product)">Buy</button>
                         </div>

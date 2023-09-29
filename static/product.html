@@ -26,8 +26,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                             <p class="product-id">{{product.productId}}</p>
                         </div>
                         <div class="product-sales-info">
-                            <p class="product-price">${{product.listPrice}}</p>
-                            <p class="quantity-available">{{product.quantityInStock}} Available</p>
+                            <p class="product-price">{{formatCurrency(product.listPrice)}}</p>
+                            <p class="quantity-available">{{formatNumber(product.quantityInStock, 0)}} Available</p>
                         </div>
                     </div>
                     <p class="product-description">{{product.description}}</p>
