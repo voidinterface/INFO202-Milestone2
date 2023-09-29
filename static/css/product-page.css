@@ -39,19 +39,16 @@
 
 .product-id {
     font-size: 14px;
-    margin: 10px 0;
-    color: --text-subtle;
+    color: var(--text-subtle);
 }
 
 .quantity-available {
     font-size: 14px;
-    margin: 10px 0;
     color: var(--text-subtle);
 }
 
 .product-price {
     font-size: 18px;
-    margin: 10px 0;
     color: #007BFF;
 }
 

@@ -4,7 +4,7 @@
     --clickable-color: #5e81ac;
     --clickable-color-hover: #81a1c1;
     --text-dark: #2e3440;
-    --text-subtle: #3b4252;
+    --text-subtle: #4c566a;
     --text-light: #eceff4;
 }
 
@@ -27,9 +27,12 @@ button {
     border: none;
     color: var(--text-light);
     border-radius: 5px;
-    padding: 10px 20px;
+    padding: 0px 20px;
+    /* margin: 10px 0; */
+    height: 36px;
     font-size: 16px;
     cursor: pointer;
+    line-height: auto;
 }
 
 button:hover {

@@ -33,7 +33,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 <div class="quantity-selector">
                     <div>
                         <label for="quantity">Quantity:</label>
-                        <input type="number" id="quantity" v-model="quantity">
+                        <input type="number" id="quantity" v-model="quantity" min=0 :max=product.quantityInStock>
                     </div>
                     <button>Add to Cart</button>
                 </div>
