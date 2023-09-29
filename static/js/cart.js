@@ -22,7 +22,7 @@ const app = Vue.createApp({
     data() {
         return {
             // models map (comma separated key/value pairs)
-            quantity: new Float();
+            quantity: new Number(),
         };
     },
     
