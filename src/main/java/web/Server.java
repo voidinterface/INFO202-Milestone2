@@ -15,6 +15,7 @@ public class Server extends Jooby {
             mount(new StaticAssetModule());
             mount(new ProductModule(JdbiDaoFactory.getProductDAO()));
             mount(new CustomerModule(JdbiDaoFactory.getCustomerDAO()));
+			mount(new SaleModule());
 	}
 
 	public static void main(String[] args) {
