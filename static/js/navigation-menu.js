@@ -26,7 +26,7 @@ export const navigationMenu = {
                 </div>
                 <div class="user-section" v-else>
                     <p>Welcome {{customer.firstName}}!</p>
-                    <a><button>View Cart</button></a>
+                    <a href="cart.html"><button>View Cart</button></a>
                     <a href="#" @click="signOut()"><button>Sign Out</button></a>
                 </div>
             </header>

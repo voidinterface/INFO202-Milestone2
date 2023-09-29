@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Doohickies and Widgets</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/cart.css">
+        <link rel="stylesheet" href="css/global.css">
+        <script src="js/external/vue.global.js"></script>
+        <script src="js/external/vuex.global.js"></script>
+        <script src="js/external/vuex-persistedstate.js"></script>
+        <script src="js/external/axios.js"></script>
+    </head>
+    <body>
+        <main>
+            <navmenu></navmenu>
+            <div class="container flex-down">
+                <h1>Your Cart</h1>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="item in items">
+                            <td>{{item.product.name}}</td>
+                            <td>{{item.quantityPurchased}}</td>
+                            <td>${{item.salePrice}}</td>
+                            <td>${{item.salePrice * item.quantityPurchased}}</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td colspan="2"><h2>Subtotal:</h2></td>
+                            <td><h2>${{subtotal}}</h2></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="right-align">
+                    <a href="view-products.html"><button>Keep Shopping</button></a>
+                    <a href=""></a><button>Checkout</button>
+                </div>
+            </div>
+        </main>
+        <script type="module" src="js/cart.js"></script>
+    </body>
+</html>

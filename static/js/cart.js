@@ -23,6 +23,7 @@ const app = Vue.createApp({
         return {
             // models map (comma separated key/value pairs)
             quantity: new Number(),
+            subtotal: new Number(),
         };
     },
     
@@ -34,12 +35,17 @@ const app = Vue.createApp({
 
     mounted() {
         // semicolon separated statements
+        this.subtotal = this.items.reduce(
+            (sum, item) => sum + (item.salePrice * item.quantityPurchased), 0);
     },
 
     methods: {
         // comma separated function declarations
         addItem() {
-            dataStore.commit("addItem", new SaleItem(this.product, this.quantity));
+            if (this.quantity > 0) {
+                dataStore.commit("addItem", new SaleItem(this.product, this.quantity));
+            }
+            window.location = "view-products.html"
         }
     },
 

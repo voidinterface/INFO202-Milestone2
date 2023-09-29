@@ -14,7 +14,10 @@ export const dataStore = Vuex.createStore({
         },
         selectProduct(state, product) {
             state.selectedProduct = product;
-        }
+        },
+        addItem(state, item) {
+            state.items.push(item);
+        },
     },
 
     plugins: [window.createPersistedState({storage: window.sessionStorage})]

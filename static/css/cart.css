@@ -1,0 +1,22 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+thead {
+    border-bottom: 1px solid var(--text-subtle);
+}
+
+table th, table td {
+    padding: 10px;
+}
+
+tbody tr:last-child {
+    border-top: 1px solid var(--text-subtle);
+}
+
+td h2 {
+    font-size: 18px;
+    font-weight: 800;
+}
