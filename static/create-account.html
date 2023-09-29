@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="css/style.css"/>
+        <link rel="stylesheet" href="css/global.css"/>
         <title>Doohickies and Widgets</title>
         <script src="js/external/vue.global.js"></script>
         <script src="js/external/vuex.global.js"></script>
@@ -12,21 +12,39 @@
     <body>
         <main>
             <navmenu></navmenu>
-            <h1>Create an Account</h1>
-            <fieldset>
-<!--                <p style="color:red"><%= validation %></p>-->
-                <legend>Account Details</legend>
-                <form @submit.prevent="signUp()">
-                    <label>Username:</label><input type="text" v-model="customer.username" required/>
-                    <label>First Name:</label><input type="text" v-model="customer.firstName" required/>
-                    <label>Last Name:</label><input type="text" v-model="customer.surname" required/>
-                    <label>Email:</label><input type="text" v-model="customer.emailAddress" required/>
-                    <label>Address:</label><textarea v-model="customer.shippingAddress" required></textarea>
-                    <label>Password:</label><input v-model="customer.password" type="password" required/>
+            <div class="container flex-down">
+                <h1>Create an Account</h1>
+                <p class="subtle">Please register to continue.</p>
+                <!--                <p style="color:red"><%= validation %></p>-->
+                <form class="credentials-form" @submit.prevent="signUp()">
+                    <div class="input-container">
+                        <label>Username:</label><input type="text" v-model="customer.username" required/>
+                    </div>
+                    <div class="input-container">
+                        <label>First Name:</label><input type="text" v-model="customer.firstName" required/>
+                    </div>
+
+                    <div class="input-container">
+                        <label>Last Name:</label><input type="text" v-model="customer.surname" required/>
+                    </div>
                     
+                    <div class="input-container">
+                        <label>Email:</label><input type="text" v-model="customer.emailAddress" required/>
+                    </div>
+
+                    <div class="input-container">
+                        <label>Address:</label><textarea v-model="customer.shippingAddress" required></textarea>
+                    </div>
+
+                    <div class="input-container">
+                        <label>Password:</label><input v-model="customer.password" type="password" required/>
+                    </div>
+
                     <button type="submit">Create Account</button>
                 </form>
-            </fieldset>
+                <p class="subtle"> Already have an account? 
+                    <a href="sign-in.html">Sign in</a> to continue.</p>
+            </div>
         </main>
         <script type="module" src="js/customer-controller.js"></script>
     </body>

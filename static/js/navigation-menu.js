@@ -12,18 +12,24 @@ export const navigationMenu = {
     
     template:
             `
-            <nav>
-                <a href="/">Home</a>
-                <div v-if="!signedIn">
-                    <a href="sign-in.html">Sign In</a>
+            <header>
+                <h1 class="header-title">Widgets and Doohickies</h1>
+                <nav>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li v-if="signedIn"><a href="view-products.html">Products</a></li>
+                    </ul>
+                </nav>
+                <div class="user-section" v-if="!signedIn">
+                    <a href="sign-in.html"><button>Sign In</button></a>
+                    <a href="create-account.html"><button>Sign Up</button></a>
                 </div>
-                <div v-else>
-                    <a href="view-products.html">Browse Products</a>
-                    <a >View Cart</a>
-                    <a href="#" @click="signOut()">Sign Out</a>
+                <div class="user-section" v-else>
                     <p>Welcome {{customer.firstName}}!</p>
+                    <a><button>View Cart</button></a>
+                    <a href="#" @click="signOut()"><button>Sign Out</button></a>
                 </div>
-            </nav>
+            </header>
             `,
     
     methods: {
@@ -33,5 +39,3 @@ export const navigationMenu = {
         }
     }
 };
-
-

@@ -1,0 +1,19 @@
+.product-view {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: o auto;
+    flex-wrap: wrap;
+}
+
+#categories {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+#categories button {
+    margin: 5px;
+}

@@ -8,12 +8,14 @@
 }
 
 .product-card-sm {
-    max-width: 300px;
+    width: 300px;
     margin: 0 auto;
     background-color: var(--component-color);
     padding: 20px;
+    margin: 10px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    height: 220px;
 }
 
 .product-top-row {
@@ -37,6 +39,15 @@
     font-weight: 600;
 }
 
+.product-title h2 {
+    width: 250px;
+    font-size: 18px;
+    font-weight: 400;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
 .product-id {
     font-size: 14px;
     color: var(--text-subtle);
@@ -45,6 +56,12 @@
 .quantity-available {
     font-size: 14px;
     color: var(--text-subtle);
+}
+
+.product-description-sm {
+    height: 50px;
+    overflow-y: scroll;
+    scrollbar-width: none;
 }
 
 .product-price {

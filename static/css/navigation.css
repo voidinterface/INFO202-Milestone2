@@ -1,0 +1,57 @@
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--component-color);
+    color: var(--text-dark);
+    padding: 20px 5%;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+header * {
+    flex: 1;
+    justify-content: center;
+}
+
+header :first-child {
+    margin-right: auto;
+}
+
+header :last-child {
+    margin-left: auto;
+}
+
+.header-title {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+nav ul {
+    list-style: none;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 0;
+    padding: 10px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--text-dark);
+}
+
+nav li a:hover {
+    color: var(--clickable-color);
+}
+
+.user-section p {
+    display: inline-block;
+    margin-right: 5px;
+    color: var(--text-subtle);
+}
+
+.user-section a:not(:first-child) {
+    margin-left: 5px;
+}

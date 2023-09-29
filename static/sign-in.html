@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" type="text/css" href="css/style.css" />
+        <link rel="stylesheet" type="text/css" href="css/global.css" />
         <title>Doohickies and Widgets</title>
         <script src="js/external/vue.global.js"></script>
         <script src="js/external/vuex.global.js"></script>
@@ -10,25 +10,30 @@
         <script src="js/external/axios.js"></script>
     </head>
     <body>
-        <main>
-            <h1>Sign In</h1>
-            <p>Please sign in to continue.</p>
-            <fieldset>
-                <legend>Account Details</legend>
+        <main> 
+            <navmenu></navmenu>
+            <div class="container flex-down">
+                <h1>Sign In</h1>
+                <p class="subtle">Please sign in to continue.</p>
 <!--                <%
                     String validation = (String) session.getAttribute("validation");
                     validation = validation != null ? validation : "";
                 %>-->
                 <!--<p style="color:red"><%= validation %></p>-->
-                <form @submit.prevent="signIn()">
-                    <label>Username:</label><input type="text" v-model="customer.username" required/>
-                    <label>Password:</label><input type="password" v-model="customer.password" required/>
-                    
+                <form class="credentials-form" @submit.prevent="signIn()">
+                    <div class="input-container">
+                        <label>Username:</label>
+                        <input type="text" v-model="customer.username" required/>
+                    </div>
+                    <div class="input-container">
+                        <label>Password:</label>
+                        <input type="password" v-model="customer.password" required/>
+                    </div>
                     <button type="submit">Sign In</button>
                 </form>
-            </fieldset>
-            <p> If you don't have an account then you can 
-                <a href="create-account.html">create one</a>.</p>
+                <p class="subtle"> If you don't have an account then you can 
+                    <a href="create-account.html">create one</a>.</p>
+            </div>
         </main>
         <script type="module" src="js/customer-controller.js"></script>
     </body>
