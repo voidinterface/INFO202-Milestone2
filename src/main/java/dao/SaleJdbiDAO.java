@@ -11,7 +11,7 @@ import org.jdbi.v3.sqlobject.transaction.Transaction;
 
 public interface SaleJdbiDAO extends SaleDAO {
 
-	@SqlUpdate("insert into Sale(Customer_Username, Sale_Date, Status)"
+	@SqlUpdate("insert into Sale(Customer_Username, Date, Status)"
         + " values (:customer.username, :date, :status)")
 	@GetGeneratedKeys
 	Integer insertSale(@BindBean Sale sale);

@@ -65,6 +65,10 @@ const app = Vue.createApp({
             this.subtotal = this.items.reduce(
                 (sum, item) => sum + (item.salePrice * item.quantityPurchased), 0);
         },
+
+        cartEmpty() {
+            return this.items.length === 0;
+        }
     },
 
     // other modules
