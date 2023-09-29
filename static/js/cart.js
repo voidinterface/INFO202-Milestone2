@@ -1,5 +1,7 @@
 "use strict";
 
+var saleApi = "/api/sales/";
+
 class SaleItem {
 	constructor(product, quantityPurchased) {
 		this.product = product;
@@ -35,8 +37,7 @@ const app = Vue.createApp({
 
     mounted() {
         // semicolon separated statements
-        this.subtotal = this.items.reduce(
-            (sum, item) => sum + (item.salePrice * item.quantityPurchased), 0);
+        this.updateTotal();
     },
 
     methods: {
@@ -46,7 +47,24 @@ const app = Vue.createApp({
                 dataStore.commit("addItem", new SaleItem(this.product, this.quantity));
             }
             window.location = "view-products.html"
-        }
+        },
+
+        checkOut() {
+            let sale = new Sale(this.customer, this.items);
+            axios.post(saleApi, sale)
+                .then( () => {
+                    dataStore.commit("clearItems");
+                    window.location = "confirmation.html";
+                }).catch(error => {
+                    console.error(error);
+                    alert('An error occured, check the console for details!');
+                });
+        },
+
+        updateTotal() {
+            this.subtotal = this.items.reduce(
+                (sum, item) => sum + (item.salePrice * item.quantityPurchased), 0);
+        },
     },
 
     // other modules

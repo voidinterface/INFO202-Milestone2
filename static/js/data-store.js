@@ -18,6 +18,9 @@ export const dataStore = Vuex.createStore({
         addItem(state, item) {
             state.items.push(item);
         },
+        clearItems(state) {
+            state.items = new Array();
+        },
     },
 
     plugins: [window.createPersistedState({storage: window.sessionStorage})]
