@@ -1,0 +1,59 @@
+@startuml
+
+' style tweaks to make the diagram a little more readable
+skinparam {
+	Style strictuml
+	RoundCorner 5
+	BoxPadding 35
+	ParticipantPadding 15
+    Padding 2
+
+	Sequence {
+		' make activations yellow too
+		LifeLineBackgroundColor #FDFDCD
+
+		' make stereotypes more presentable
+		Stereotype {
+			Font {
+				Size 11
+				Style plain
+			}
+		}
+	}
+
+	Database {
+		' make database border consistent with the rest of the diagram
+		BorderColor #A80036
+	}
+
+}
+
+actor "Customer" as customer
+box "Web Browser"
+participant "view-products" as page <<html>>
+participant "view-product.js" as js <<Vue>>
+participant "axios" as axios <<HTTP client>>
+end box
+box "Web Server"
+participant "Server" as server <<Jooby>>
+participant "ProductModule" as module <<Jooby>>
+participant "ProductDAO" as dao <<DAO>>
+end box
+database "Database" as db
+
+customer -> page++: click category button
+page -> js++ : filterByCategory(category)
+js -> axios++ : get("/api/categories/{category}/")
+axios -> server++ : GET /api/categories/{category}/
+server -> module++ : get("/api/categories/{category}/")
+module -> dao++ : findByCategory(category)
+dao -> db++ : select * from products where category = :category
+db -> dao-- : result
+dao -> module-- : products
+module -> server-- : products
+server -> axios-- : JSON encoded products
+axios -> js-- : Javascript products
+js -> page-- : template merged with products
+page -> customer-- : filtered products displayed to user
+
+@enduml
