@@ -52,6 +52,9 @@ const app = Vue.createApp({
             dataStore.commit("selectProduct", product);
             window.location = "product.html";
         },
+        getImage(product) {
+            return `/api/products/${product.productId}/image/`;
+        }
     },
 
     // other modules

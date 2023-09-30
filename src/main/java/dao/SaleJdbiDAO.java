@@ -23,6 +23,10 @@ public interface SaleJdbiDAO extends SaleDAO {
 	@SqlUpdate("update Products set Quantity_In_Stock = Quantity_In_Stock - :quantityPurchased"
         + " where Product_ID = :product.productId")
 	void updateStockLevel(@BindBean SaleItem item);
+        
+        @SqlUpdate("update Products set Quantity_Sold = Quantity_Sold + :quantityPurchased"
+        + " where Product_ID = :product.productId")
+	void updateSalesLevel(@BindBean SaleItem item);
 
 	@Override
 	@Transaction
@@ -41,6 +45,7 @@ public interface SaleJdbiDAO extends SaleDAO {
 		for (SaleItem item : sale.getItems()) {
 			insertSaleItem(item, saleId);
 			updateStockLevel(item);
+                        updateSalesLevel(item);
 		}
 
 	}

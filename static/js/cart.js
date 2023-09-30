@@ -68,7 +68,10 @@ const app = Vue.createApp({
 
         cartEmpty() {
             return this.items.length === 0;
-        }
+        },
+        getImage(product) {
+            return `/api/products/${product.productId}/image/`;
+        },
     },
 
     // other modules

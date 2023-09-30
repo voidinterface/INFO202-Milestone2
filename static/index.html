@@ -4,6 +4,8 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="css/global.css" />
         <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <link rel="stylesheet" type="text/css" href="css/product.css" />
+        
         <title>Doohickies and Widgets</title>
         <script src="js/external/vue.global.js"></script>
         <script src="js/external/vuex.global.js"></script>
@@ -17,6 +19,29 @@
                 <h1>Welcome to the Doohickies and Widgets Shop</h1>
 
                 <p>We sell the biggest range of frobnostificators, widgets and doohickies</p>
+            </div>
+            <div class="container">
+                <h1>Featured Products</h1>
+
+                <div class="product-view">
+                    <div class="product-card-sm" v-for="product in products">
+                        <img :src="getImage(product)" alt="">
+                        <div class="product-top-row">
+                            <div class="product-title">
+                                <h2>{{product.name}}</h2>
+                                <p class="product-id">{{product.productId}}</p>
+                            </div>
+                        </div>
+                        <div class="product-description-sm">{{product.description}}</div>
+                        <div class="quantity-selector">
+                            <div class="product-sales-info">
+                                <p class="product-price">{{formatCurrency(product.listPrice)}}</p>
+                                <p class="quantity-available">{{formatNumber(product.quantityInStock, 0)}} Available</p>
+                            </div>
+                            <p>{{formatNumber(product.quantitySold, 0)}} Sold</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </main>
         <script type="module" src="js/index.js"></script>

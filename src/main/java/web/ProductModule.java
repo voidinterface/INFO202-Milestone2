@@ -8,6 +8,7 @@ import dao.ProductDAO;
 import domain.Product;
 import io.jooby.Jooby;
 import io.jooby.StatusCode;
+import java.sql.Blob;
 import java.util.Collection;
 
 /**
@@ -20,7 +21,6 @@ public class ProductModule extends Jooby {
         get("/api/products/", ctx -> dao.getProducts());
         
         get("/api/products/{id}/", ctx -> {
-            System.out.println("herer");
             String id = ctx.path("id").value();
             
             Product product = dao.searchById(id);
@@ -45,6 +45,18 @@ public class ProductModule extends Jooby {
                 return products;
             }
         });
+//        
+        get("/api/products/{id}/image/", ctx -> {
+            String id = ctx.path("id").value();
+            
+            Product product = dao.searchById(id);
+            
+            if (product == null) {
+                return ctx.send(StatusCode.NOT_FOUND);
+            } else {
+                return ctx.send(product.getImage().getBinaryStream());
+            }
+        }); 
     }
     
 }

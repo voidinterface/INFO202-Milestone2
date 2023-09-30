@@ -13,7 +13,9 @@ CREATE TABLE IF NOT EXISTS Products (
     Description VARCHAR NOT NULL,
     Category VARCHAR NOT NULL,
     List_Price DECIMAL(10, 2) NOT NULL,
-    Quantity_In_Stock DECIMAL(10, 3) NOT NULL
+    Quantity_In_Stock DECIMAL(10, 3) NOT NULL,
+    Image BLOB,
+    Quantity_Sold DECIMAL DEFAULT 0 NOT NULL
 );
 
 

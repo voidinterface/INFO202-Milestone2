@@ -1,6 +1,8 @@
 package domain;
 
+import java.awt.image.DataBufferByte;
 import java.math.BigDecimal;
+import java.sql.Blob;
 import java.util.Objects;
 import net.sf.oval.constraint.Length;
 import net.sf.oval.constraint.NotBlank;
@@ -36,6 +38,10 @@ public class Product {
 	@NotNull(message = "Quantity must be provided.")
 	@NotNegative(message = "Quantity must be zero or greater.")
 	private BigDecimal quantityInStock;
+        
+        private transient Blob image;
+        
+        private BigDecimal quantitySold;
 
 	public Product() {
 	}
@@ -96,6 +102,23 @@ public class Product {
 	public void setQuantityInStock(BigDecimal quantityInStock) {
 		this.quantityInStock = quantityInStock;
 	}
+        
+        public void setImage(Blob imageBuffer) {
+            this.image = imageBuffer;
+        }
+        
+        public Blob getImage() {
+            return this.image;
+        }
+
+        public BigDecimal getQuantitySold() {
+            return quantitySold;
+        }
+
+        public void setQuantitySold(BigDecimal quantitySold) {
+            this.quantitySold = quantitySold;
+        }
+        
 
 	@Override
 	public String toString() {

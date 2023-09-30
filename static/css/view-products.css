@@ -1,11 +1,3 @@
-.product-view {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: o auto;
-    flex-wrap: wrap;
-}
-
 #categories {
     display: flex;
     justify-content: center;

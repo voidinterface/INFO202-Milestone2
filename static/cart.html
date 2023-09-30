@@ -27,7 +27,10 @@
                     </thead>
                     <tbody>
                         <tr v-for="item in items">
-                            <td>{{item.product.name}}</td>
+                            <td class="product-row">
+                                <img :src="getImage(item.product)" alt="">
+                                <div>{{item.product.name}}</div>
+                            </td>
                             <td>{{formatNumber(item.quantityPurchased, 0)}}</td>
                             <td>{{formatCurrency(item.salePrice)}}</td>
                             <td>{{formatCurrency(item.salePrice * item.quantityPurchased)}}</td>

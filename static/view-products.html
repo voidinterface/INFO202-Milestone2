@@ -25,6 +25,7 @@
                 
                 <div class="product-view">
                     <div class="product-card-sm" v-for="product in products">
+                        <img :src="getImage(product)" alt="">
                         <div class="product-top-row">
                             <div class="product-title">
                                 <h2>{{product.name}}</h2>

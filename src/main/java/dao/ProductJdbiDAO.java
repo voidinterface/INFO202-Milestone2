@@ -25,9 +25,9 @@ public interface ProductJdbiDAO extends ProductDAO {
 
     @Override
     @SqlUpdate("insert into Products(Product_ID, Name, "
-            + "Description, Category, List_Price, Quantity_In_Stock) "
+            + "Description, Category, List_Price, Quantity_In_Stock, Image) "
             + "values (:productId, :name, :description, :category, :listPrice, "
-            + ":quantityInStock)")
+            + ":quantityInStock, :image)")
     public void saveProduct(@BindBean Product product);
 
     @Override
